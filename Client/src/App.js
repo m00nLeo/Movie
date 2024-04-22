@@ -12,7 +12,7 @@ require("dotenv").config();
 function App() {
   const accessToken = process.env.REACT_APP_ACCESS_TOKEN_KEY;
 
-  const apiUrl = "http://localhost:5000";
+  const apiUrl = "https://movie-2a6b.onrender.com";
 
   const authAxios = axios.create({
     baseURL: apiUrl,
@@ -29,10 +29,7 @@ function App() {
           path="/"
           element={<Browse authAxios={authAxios} accessToken={accessToken} />}
         />
-        <Route
-          path="/search"
-          element={<Search accessToken={accessToken} />}
-        />
+        <Route path="/search" element={<Search accessToken={accessToken} />} />
         <Route
           path="*"
           element={<NotFound />}

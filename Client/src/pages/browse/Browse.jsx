@@ -41,7 +41,7 @@ function Browse({ authAxios, accessToken }) {
 
   // For Top-rated, Trending and Genre Movie Detail
   const fetchMovieDetail = async (film_id) => {
-    const res = await fetch(`http://localhost:5000/api/movies/video`, {
+    const res = await fetch(`https://movie-2a6b.onrender.com/api/movies/video`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=UTF-8",

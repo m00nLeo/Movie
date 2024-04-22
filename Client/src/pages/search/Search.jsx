@@ -54,7 +54,7 @@ const Search = ({ accessToken }) => {
   // Fetch serach by input, genre, language, page, year
   const fecthSearch = async () => {
     const response = await fetch(
-      `http://localhost:5000/api/movies/search?query=${inputValue}&include_adult=true&language=${language}&page=${currentPage}&genre=${genreType}&media=${mediaType}&year=${year}`,
+      `https://movie-2a6b.onrender.com/api/movies/search?query=${inputValue}&include_adult=true&language=${language}&page=${currentPage}&genre=${genreType}&media=${mediaType}&year=${year}`,
       {
         method: "POST",
         headers: {
@@ -81,7 +81,7 @@ const Search = ({ accessToken }) => {
 
   // Movie Detail
   const fetchMovieDetail = async (film_id) => {
-    const res = await fetch(`http://localhost:5000/api/movies/video`, {
+    const res = await fetch(`https://movie-2a6b.onrender.com/api/movies/video`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=UTF-8",
