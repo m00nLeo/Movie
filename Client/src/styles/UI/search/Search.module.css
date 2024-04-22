@@ -1,0 +1,51 @@
+.banner {
+  position: relative;
+}
+
+.img {
+  height: 100vh;
+  width: 100%;
+  background-position-x: 50%;
+  background-position-y: center;
+  background-size: cover;
+  position: absolute;
+  background-repeat: no-repeat;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transition: opacity 0.4s cubic-bezier(0.665, 0.235, 0.265, 0.8) 0s;
+}
+
+.trailer_vignette {
+  background: linear-gradient(77deg, rgba(0, 0, 0, 0.85), transparent 90%);
+  bottom: 0;
+  height: 100vh;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  right: 20%;
+  top: 0;
+  transition: opacity 0.5s;
+}
+
+.hero_vignette {
+  position: absolute;
+  background-color: transparent;
+  background-image: linear-gradient(
+    180deg,
+    hsla(0, 0%, 8%, 0) 0,
+    hsla(0, 0%, 8%, 0.15) 15%,
+    hsla(0, 0%, 8%, 0.35) 29%,
+    hsla(0, 0%, 8%, 0.7) 60%,
+    #141414 68%,
+    #060606
+  );
+  background-position: 0 top;
+  background-repeat: repeat-x;
+  background-size: 100% 100%;
+  bottom: 10%;
+  height: 14.7vh;
+  top: 88vh;
+  width: 100%;
+}

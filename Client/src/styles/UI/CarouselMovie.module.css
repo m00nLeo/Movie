@@ -1,0 +1,16 @@
+.containerOrigin {
+  max-width: 1400px;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10vh 0 1rem;
+}
+
+.containerList {
+  max-width: 1400px;
+  height: 310px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0vh 0 1rem;
+}
+

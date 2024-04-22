@@ -1,0 +1,248 @@
+:root {
+  --delay: 0.5s;
+  --timing: 1.3s;
+}
+
+.main {
+  height: 300px;
+}
+
+/*                 */
+
+/* Genre Selecte */
+
+/*                */
+.selectedType {
+  appearance: none;
+  outline: 10px red;
+  border: 0;
+  box-shadow: none;
+  width: 25em;
+  border-radius: 40px;
+  padding: 0 1em;
+  color: #4a3434;
+  background-color: #c8c5c5;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.selectedType::-ms-expand {
+  display: none;
+}
+.option {
+  color: #584a4a;
+  font-weight: bold;
+}
+.select {
+  position: relative;
+  display: flex;
+  width: 25em;
+  height: 3em;
+  overflow: hidden;
+}
+
+/* Arrow */
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  height: 1em;
+  top: 0;
+  right: 4em;
+  padding: 1em;
+  background-color: #a19e9e;
+  transition: 0.25s all ease;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  pointer-events: none;
+}
+/* Transition */
+.select:hover::after {
+  color: #ff4242;
+}
+
+/*                 */
+
+/* Pagination */
+
+/*                */
+.pagination {
+  margin: 0;
+  padding: 10px;
+  background-color: #c8c5c5;
+  border-radius: 40px;
+  box-shadow: 1px 2px 10px 0 rgba(89, 87, 87, 0.5);
+}
+
+.pagination button {
+  display: block;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  background-color: #a19e9e;
+  text-align: center;
+  color: #4a3434;
+  border-radius: 4px;
+  margin: 0 5px;
+  box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.1), 0 2px 5px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  border: #252525;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.pagination button:first-child {
+  border-radius: 40px 0 0 40px;
+}
+.pagination button:last-child {
+  border-radius: 0 40px 40px 0;
+}
+
+.pagination button:not(:disabled):hover,
+.pagination .activeButton {
+  color: #fff;
+  background-color: #ff4242;
+  scale: 1.2;
+}
+
+button:disabled {
+  background-color: #c2bfbf;
+  color: #919191;
+  scale: 1;
+}
+
+/*                 */
+
+/* Title */
+
+/*                */
+.main_box {
+  position: relative;
+  background: firebrick;
+  padding: 0.1rem 0.5rem;
+  overflow: hidden;
+  margin-left: 20px;
+}
+
+.bar {
+  position: absolute;
+  width: 1.3rem;
+  height: 0.2rem;
+  background: #c2bfbf;
+  transition: all var(--timing) linear;
+  -webkit-animation-duration: var(--timing);
+  animation-duration: var(--timing);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+.top {
+  top: -0.2rem;
+}
+
+.right {
+  right: -0.7rem;
+  transform: rotate(90deg);
+}
+
+.bottom {
+  right: -0.6rem;
+  bottom: -0.2rem;
+}
+
+.left {
+  top: 0rem;
+  left: -0.7rem;
+  transform: rotate(90deg);
+}
+
+@-webkit-keyframes t-move {
+  0% {
+    left: 10rem;
+  }
+  100% {
+    left: 1rem;
+  }
+}
+
+@keyframes t-move {
+  0% {
+    left: 0.1rem;
+  }
+  100% {
+    left: 95%;
+  }
+}
+
+.top {
+  -webkit-animation-name: t-move;
+  animation-name: t-move;
+}
+
+@-webkit-keyframes b-move {
+  0% {
+    right: 10rem;
+  }
+  100% {
+    right: 1rem;
+  }
+}
+
+@keyframes b-move {
+  0% {
+    right: 0.1rem;
+  }
+  100% {
+    right: 95%;
+  }
+}
+
+.bottom {
+  -webkit-animation-name: b-move;
+  animation-name: b-move;
+}
+
+@-webkit-keyframes l-move {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 1rem;
+  }
+}
+@keyframes l-move {
+  0% {
+    top: 0.5rem;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+.left {
+  -webkit-animation-name: l-move;
+  animation-name: l-move;
+}
+
+@-webkit-keyframes r-move {
+  0% {
+    bottom: 1rem;
+  }
+  100% {
+    bottom: 0.3rem;
+  }
+}
+@keyframes r-move {
+  0% {
+    bottom: 0.5rem;
+  }
+  100% {
+    bottom: 100%;
+  }
+}
+
+.right {
+  -webkit-animation-name: r-move;
+  animation-name: r-move;
+}

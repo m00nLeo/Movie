@@ -1,0 +1,40 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  margin-left: auto;
+  margin-right: auto;
+  /* max-width: 1024px; */
+  padding: 1rem 4rem;
+  z-index: 10;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+}
+.navbarBlack {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.navbarNormal {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.link {
+  color: firebrick;
+  font-size: 30px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.btn {
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: darkgrey;
+}

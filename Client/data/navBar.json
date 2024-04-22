@@ -1,0 +1,32 @@
+[
+  {
+    "type": "Stays",
+    "icon": "faBed",
+    "iconName": "bed",
+    "active": true
+  },
+  {
+    "type": "Flights",
+    "icon": "faPlane",
+    "iconName": "plane",
+    "active": false
+  },
+  {
+    "type": "Car rentals",
+    "icon": "faCar",
+    "iconName": "car",
+    "active": false
+  },
+  {
+    "type": "Attractions",
+    "icon": "faBed",
+    "iconName": "bed",
+    "active": false
+  },
+  {
+    "type": "Airport taxis",
+    "icon": "faTaxi",
+    "iconName": "taxi",
+    "active": false
+  }
+]
