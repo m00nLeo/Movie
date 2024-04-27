@@ -100,14 +100,15 @@ const CarouselMovieType = ({
 
   const fetchMovie = async (request) => {
     if (request === "discover") {
-      const response = await authAxios.get(
-        `/api/movies/${request}?page=${currentPage}&genre=${option}`
-      );
-      const { data } = await response;
-      if (data.message) console.log(data.message);
-      setMovieListData(data);
-      setMoiveData(data?.paginatedData.result);
-      // }
+      if (option !== "") {
+        const response = await authAxios.get(
+          `/api/movies/${request}?page=${currentPage}&genre=${option}`
+        );
+        const { data } = await response;
+        if (data.message) console.log(data.message);
+        setMovieListData(data);
+        setMoiveData(data?.paginatedData.result);
+      }
     } else {
       const response = await authAxios.get(
         `/api/movies/${request}?page=${currentPage}`,
@@ -330,7 +331,7 @@ const CarouselMovieType = ({
               padding: 50,
             }}
           >
-            Please, Choose your fav movie genre{" "}
+            Please, Choose your favourite movie genre{" "}
             <span role="img" aria-label="FilmGenre">
               🍿
             </span>

@@ -60,7 +60,6 @@ button:disabled {
 .select {
   position: relative;
   display: flex;
-  width: 15em;
   height: 3em;
   overflow: hidden;
 }
@@ -137,4 +136,63 @@ button:disabled {
   top: 80vh;
   left: 5%;
   color: white;
+}
+
+.searchState {
+  /* width: 100vw; */
+  display: grid;
+  /* justify-content: space-between;
+  align-items: center; */
+  gap: 20px;
+  padding: 1rem 0 1rem 2rem;
+  /* max-width: 1380px; */
+  /* transform: translate(-0%, -160%); */
+}
+
+.resultsList {
+  display: grid;
+  gap: 20px;
+  padding: 1rem 0;
+  position: absolute;
+}
+
+@media (min-width: 320px) {
+  .resultsList {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .searchState {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 420px) {
+  .resultsList {
+    grid-template-columns: repeat(1, 1fr);
+    transform: translateX(20%);
+  }
+}
+
+@media (min-width: 460px) {
+  .resultsList {
+    grid-template-columns: repeat(2, 1fr);
+    transform: translateX(0%);
+  }
+}
+
+@media (min-width: 920px) {
+  .resultsList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .resultsList {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1500px) {
+  .resultsList {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }

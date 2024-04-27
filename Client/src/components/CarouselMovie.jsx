@@ -27,29 +27,45 @@ const CarouselMovie = (props) => {
         renderButtonGroupOutside={false}
         renderDotsOutside={false}
         responsive={{
-          desktop: {
-            breakpoint: {
-              max: 2000,
-              min: 1024,
-            },
-            items: 4,
-            partialVisibilityGutter: 60,
-          },
           mobile: {
             breakpoint: {
-              max: 464,
+              max: 900,
               min: 0,
             },
             items: 1,
-            partialVisibilityGutter: 30,
+            partialVisibilityGutter: 120,
           },
           tablet: {
             breakpoint: {
-              max: 950,
-              min: 464,
+              max: 1200,
+              min: 900,
             },
             items: 2,
             partialVisibilityGutter: 30,
+          },
+          laptop_desktop: {
+            breakpoint: {
+              max: 1500,
+              min: 1200,
+            },
+            items: 3,
+            partialVisibilityGutter: 60,
+          },
+          monitor_desktop: {
+            breakpoint: {
+              max: 2000,
+              min: 1500,
+            },
+            items: 4,
+            partialVisibilityGutter: 0,
+          },
+          monitor_4k_desktop: {
+            breakpoint: {
+              max: 3840,
+              min: 2000,
+            },
+            items: 6,
+            partialVisibilityGutter: 0,
           },
         }}
         rewind={false}

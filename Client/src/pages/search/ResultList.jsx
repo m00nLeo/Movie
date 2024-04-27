@@ -108,7 +108,7 @@ const ResultList = ({
       name: "Western",
     },
   ];
-
+  console.log(genreType);
   const mediaTypeOption = ["All", "Movie", "TV", "Person"];
 
   const languageOption = ["all", "en", "ja", "ko"];
@@ -187,7 +187,7 @@ const ResultList = ({
                         setGenreType(e.target.value);
                         setCurrentPage(1);
                       }}
-                      defaultValue={genreType}
+                      defaultValue={genreType === "" ? "start" : genreType}
                       className={classes.selectedType}
                     >
                       <option value="start" disabled>
@@ -326,20 +326,9 @@ const ResultList = ({
                 </div>
               </>
             ) : (
-              <Card>
+              <>
                 {/* Search Parameters */}
-                <div
-                  className=""
-                  style={{
-                    width: "100vw",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    gap: 20,
-                    maxWidth: "1380px",
-                    transform: "translate(-0%, -160%)",
-                  }}
-                >
+                <div className={classes.searchState}>
                   {/* Genre Option */}
                   <div className={classes.select}>
                     <select
@@ -347,7 +336,7 @@ const ResultList = ({
                         setGenreType(e.target.value);
                         setCurrentPage(1);
                       }}
-                      defaultValue={genreType !== "" ? genreType : "start"}
+                      defaultValue={"start"}
                       className={classes.selectedType}
                     >
                       <option value="start" disabled>
@@ -472,31 +461,24 @@ const ResultList = ({
                 </div>
 
                 {/* Film Search Results */}
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(5, 1fr)",
-                    gap: 20,
-                    padding: "1rem 0",
-                    position: "absolute",
-                    transform: "translate(0, -5%)",
-                  }}
-                >
-                  {searchState?.map((data, i) => (
-                    <LinkImage
-                      data={data}
-                      key={data?.id * i}
-                      imgPath={"poster"}
-                      setModal={setModal}
-                      modal={modal}
-                      setMovieDetail={setMovieDetail}
-                      fetchMovieDetail={fetchMovieDetail}
-                      setModalId={setModalId}
-                      modalId={modalId}
-                    />
-                  ))}
-                </div>
-              </Card>
+                <Card>
+                  <div className={classes.resultsList}>
+                    {searchState?.map((data, i) => (
+                      <LinkImage
+                        data={data}
+                        key={data?.id * i}
+                        imgPath={"poster"}
+                        setModal={setModal}
+                        modal={modal}
+                        setMovieDetail={setMovieDetail}
+                        fetchMovieDetail={fetchMovieDetail}
+                        setModalId={setModalId}
+                        modalId={modalId}
+                      />
+                    ))}
+                  </div>
+                </Card>
+              </>
             )}
           </>
         )}

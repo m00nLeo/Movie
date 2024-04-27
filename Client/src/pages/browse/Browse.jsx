@@ -41,18 +41,22 @@ function Browse({ authAxios, accessToken }) {
 
   // For Top-rated, Trending and Genre Movie Detail
   const fetchMovieDetail = async (film_id) => {
-    const res = await fetch(`https://movie-2a6b.onrender.com/api/movies/video`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=UTF-8",
-        Authorization: `Bearer ${accessToken}`,
-      },
-      body: JSON.stringify({ film_id }),
-    });
+    const res = await fetch(
+      `https://movie-2a6b.onrender.com/api/movies/video`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json;charset=UTF-8",
+          Authorization: `Bearer ${accessToken}`,
+        },
+        body: JSON.stringify({ film_id }),
+      }
+    );
 
     const data = await res.json();
-    if (data.message) console.log(data.message);
-    setStateDetail(data?.trailer);
+    if (data.message) {
+      console.log(data.message);
+    } else setStateDetail(data?.trailer);
   };
 
   // Fetch Origin Detail
@@ -68,7 +72,24 @@ function Browse({ authAxios, accessToken }) {
       console.log(data?.status_message);
     } else {
       if (data?.results.length > 0) {
-        setStateDetail(data?.results[0]);
+        const { results } = data;
+        const foundMovie = results
+          .filter((film) => film.official === true)
+          ?.filter((film) => (film.site = "YouTube"));
+
+        const trailerList =
+          foundMovie?.filter((film) => film.type === "Trailer") ||
+          foundMovie?.filter((film) => film.type === "Featurette") ||
+          foundMovie?.filter((film) => film.type === "Teaser");
+
+        let trailer;
+        if (trailerList?.length > 1) {
+          trailer = trailerList.sort((soonerReleased, lastedReleased) => {
+            return lastedReleased?.published_at - soonerReleased?.published_at;
+          })[0];
+        } else trailer = trailerList[0];
+
+        setStateDetail(trailer);
       } else {
         console.log(data?.status_message);
       }

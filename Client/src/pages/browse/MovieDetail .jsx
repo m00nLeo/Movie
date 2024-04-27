@@ -14,8 +14,8 @@ const MovieDetail = ({
 }) => {
   // Youtube Video size option
   const opts = {
-    height: "320",
-    width: "567",
+    height: "360",
+    width: "640",
     playerVars: {
       autoplay: 1,
     },
@@ -99,8 +99,16 @@ const MovieDetail = ({
             {!data?.key ? (
               <>
                 <img
-                  src={`https://image.tmdb.org/t/p/original/${movieDetail?.backdrop_path}`}
-                  alt={renderTitle}
+                  src={
+                    movieDetail?.backdrop_path === null
+                      ? "https://yoast.com/app/uploads/2015/08/404_error_checking_FI.png"
+                      : `https://image.tmdb.org/t/p/original/${movieDetail?.backdrop_path}`
+                  }
+                  alt={
+                    movieDetail?.backdrop_path === null
+                      ? "Image not Found"
+                      : renderTitle
+                  }
                   style={{
                     height: "320px",
                     width: "567px",

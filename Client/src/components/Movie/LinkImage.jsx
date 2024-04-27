@@ -19,15 +19,18 @@ const LinkImage = ({
     height: "150px",
   };
   const styles = imgPath === "backdrop" ? imgBackdropStyle : imgPosterStyle;
-
   let image;
   if (data.backdrop_path === null) {
-    image = `https://image.tmdb.org/t/p/original/${data.poster_path}`;
+    if (data.poster_path === null) {
+      image = "https://yoast.com/app/uploads/2015/08/404_error_checking_FI.png"
+    } else {
+      image = `https://image.tmdb.org/t/p/original/${data?.poster_path}`;
+    }
   } else {
     image =
       imgPath === "poster"
-        ? `https://image.tmdb.org/t/p/original/${data.poster_path}`
-        : `https://image.tmdb.org/t/p/original/${data.backdrop_path}`;
+        ? `https://image.tmdb.org/t/p/original/${data?.poster_path}`
+        : `https://image.tmdb.org/t/p/original/${data?.backdrop_path}`;
   }
 
   const releasedDate = new Date(
@@ -75,9 +78,11 @@ const LinkImage = ({
         <div className={classes.imgBack}>
           <img
             src={`${
-              data.backdrop_path === null
-                ? `https://image.tmdb.org/t/p/original/${data.poster_path}`
-                : `https://image.tmdb.org/t/p/original/${data.backdrop_path}`
+              data.backdrop_path !== null
+                ? `https://image.tmdb.org/t/p/original/${data?.backdrop_path}`
+                : data.poster_path !== null
+                ? `https://image.tmdb.org/t/p/original/${data?.poster_path}`
+                : "https://yoast.com/app/uploads/2015/08/404_error_checking_FI.png"
             }`}
             alt={data.name}
             style={{ width: "265px", height: "150px", position: "relative" }}

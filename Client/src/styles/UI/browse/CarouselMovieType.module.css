@@ -2,6 +2,13 @@
   --delay: 0.5s;
   --timing: 1.3s;
 }
+@import url("https://fonts.googleapis.com/css2?family=Ysabeau+Infant:ital,wght@0,1..1000;1,1..1000&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 .main {
   height: 300px;
@@ -12,18 +19,26 @@
 /* Genre Selecte */
 
 /*                */
+.select {
+  position: relative;
+  display: flex;
+  height: 3em;
+  overflow: hidden;
+}
 .selectedType {
   appearance: none;
   outline: 10px red;
   border: 0;
   box-shadow: none;
-  width: 25em;
+  width: 15em;
   border-radius: 40px;
   padding: 0 1em;
   color: #4a3434;
   background-color: #c8c5c5;
   cursor: pointer;
   font-weight: bold;
+  font-family: "Ysabeau Infant", "Segoe UI", "Roboto", sans-serif;
+  font-weight: 700;
 }
 
 .selectedType::-ms-expand {
@@ -32,13 +47,8 @@
 .option {
   color: #584a4a;
   font-weight: bold;
-}
-.select {
-  position: relative;
-  display: flex;
-  width: 25em;
-  height: 3em;
-  overflow: hidden;
+  font-family: "Ysabeau Infant", "Segoe UI", "Roboto", sans-serif;
+  font-weight: 700;
 }
 
 /* Arrow */
@@ -47,7 +57,7 @@
   position: absolute;
   height: 1em;
   top: 0;
-  right: 4em;
+  right: 0;
   padding: 1em;
   background-color: #a19e9e;
   transition: 0.25s all ease;
@@ -77,7 +87,6 @@
   display: block;
   width: 20px;
   height: 20px;
-  line-height: 20px;
   background-color: #a19e9e;
   text-align: center;
   color: #4a3434;
@@ -88,6 +97,8 @@
   border: #252525;
   cursor: pointer;
   font-weight: bold;
+  font-family: "Ysabeau Infant", "Segoe UI", "Roboto", sans-serif;
+  font-weight: 800;
 }
 
 .pagination button:first-child {

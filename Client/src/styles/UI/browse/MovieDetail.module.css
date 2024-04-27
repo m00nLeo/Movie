@@ -1,3 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .detail {
   position: fixed;
   bottom: 0;
@@ -5,11 +11,12 @@
   right: 0;
   height: fit-content;
   z-index: 100;
-  box-shadow: 0 0 10px 1px #5c5858;
-  background-color: #878282;
-  color: #3c2f2f;
+  box-shadow: 0 0 10px 4px #555151;
+  background-color: #9a8873;
+  color: #e8e8e8;
   overflow: hidden;
   transition: all 250ms ease-out;
+  border-radius: 80% 80% 30%/20% 20% 0% 0%;
 }
 .close {
   opacity: 0;
@@ -26,26 +33,9 @@
   width: fit-content;
   height: fit-content;
   font-size: 2rem;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -20%);
+  transform: translate(44vw, 20%);
   cursor: pointer;
   z-index: 2000;
-  box-shadow: 0px -15px 12px 0px rgb(63, 54, 54);
-  background-color: #a29e9e;
-  border-radius: 3rem;
-  width: 4rem;
-  height: 5rem;
-}
-
-.closeModal svg {
-  position: absolute;
-  padding: 0.8rem;
-  left: 3%;
-  top: 16%;
-  width: 4rem;
-  height: 4rem;
 }
 
 .closeModal:hover {
@@ -81,15 +71,32 @@
 
 .detailContent {
   display: flex;
-  gap: 1.4rem;
-  justify-content: space-between;
+  gap: 2rem;
   padding: 0.5rem 0 0.2rem;
 }
 
 .title {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid rgb(53, 50, 50);
   margin-bottom: 1rem;
   padding: 0.5rem 0;
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+@media (min-width: 320px) {
+  .detailContent {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (min-width: 1000px) {
+  .detailContent {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    justify-content: space-between;
+  }
 }

@@ -1,3 +1,10 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
 .banner {
   position: relative;
 }
@@ -18,18 +25,6 @@
 }
 
 .trailer_vignette {
-  /* position: absolute;
-  height: 100vh;
-  width: 100vw;
-  top: 0;
-  left: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.8),
-    rgba(37, 37, 37, 0.6)
-  );
-  right: 26%; */
-
   background: linear-gradient(77deg, rgba(0, 0, 0, 0.85), transparent 90%);
   bottom: 0;
   height: 100vh;
@@ -50,17 +45,15 @@
     hsla(0, 0%, 8%, 0.15) 15%,
     hsla(0, 0%, 8%, 0.35) 29%,
     hsla(0, 0%, 8%, 0.7) 60%,
-    #141414 68%,
-    #060606
+    #141414ea 68%,
+    #1a1717
   );
   background-position: 0 top;
   background-repeat: repeat-x;
   background-size: 100% 100%;
   bottom: 10%;
   height: 14.7vh;
-  /* opacity: 1; */
   top: 88vh;
-  /* height: 100vh; */
   width: 100%;
 }
 
@@ -69,14 +62,14 @@
   top: 40vh;
   left: 5%;
   color: white;
-  max-width: 550px;
+  max-width: 640px;
 }
 .movieDetailLongTitle{
   position: absolute;
   top: 30vh;
   left: 5%;
   color: white;
-  max-width: 550px;
+  max-width: 580px;
 }
 
 .btn {
@@ -89,7 +82,6 @@
   font-size: 1.2rem;
   font-weight: 600;
   border-radius: 0.2rem;
-
   display: flex;
   gap: 0.5rem;
   justify-content: center;

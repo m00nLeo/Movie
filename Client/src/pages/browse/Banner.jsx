@@ -21,7 +21,7 @@ const Banner = ({ randomBanner }) => {
       <Card>
         <div
           className={`${
-            renderTitle?.length > 40
+            renderTitle?.length > 30
               ? classes.movieDetailLongTitle
               : classes.movieDetail
           }`}
@@ -32,7 +32,6 @@ const Banner = ({ randomBanner }) => {
               fontSize: 50,
               fontWeight: "bold",
               marginBottom: "2rem",
-              width: "900px",
             }}
           >
             {renderTitle}
