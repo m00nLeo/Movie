@@ -108,7 +108,7 @@ const ResultList = ({
       name: "Western",
     },
   ];
-  console.log(genreType);
+  
   const mediaTypeOption = ["All", "Movie", "TV", "Person"];
 
   const languageOption = ["all", "en", "ja", "ko"];
