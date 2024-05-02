@@ -143,9 +143,12 @@ const ResultList = ({
       </Card>
 
       {/* Search Results */}
-      <div style={{ transform: "translate(0, -35%)" }}>
+      <div style={{ transform: "translate(0, -60%)" }}>
         {query === "" ? (
-          <div className="" style={{ height: "300px" }}>
+          <div
+            className=""
+            style={{ height: "300px", transform: "translate(0, 15%)" }}
+          >
             {/* Dont input any query */}
             <CarouselMovie>
               {state.map((data) => (
@@ -166,20 +169,10 @@ const ResultList = ({
         ) : (
           <>
             {searchState?.length <= 0 ? (
-              <>
+              <div style={{ transform: "translate(0, 45%)" }}>
                 {/* If it couldn't found any film that meet the criteria */}
-                <div
-                  className=""
-                  style={{
-                    width: "100vw",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    gap: 20,
-                    maxWidth: "1380px",
-                    transform: "translate(0%, 70%)",
-                  }}
-                >
+                {/* Search Parameters */}
+                <div className={classes.searchState} style={{ width: "100%" }}>
                   {/* Genre Option */}
                   <div className={classes.select}>
                     <select
@@ -256,23 +249,21 @@ const ResultList = ({
                   </div>
 
                   {/* Choose Movie Year Option */}
-                  <div className="">
-                    <input
-                      type="number"
-                      name="year"
-                      id="year"
-                      placeholder={year}
-                      step="1"
-                      min={1900}
-                      max={new Date().getFullYear()}
-                      onChange={(e) => {
-                        e.preventDefault();
-                        setTempYear(e.target.value);
-                      }}
-                      className={classes.input}
-                      onKeyDown={handleKeyDown}
-                    />
-                  </div>
+                  <input
+                    type="number"
+                    name="year"
+                    id="year"
+                    placeholder={year}
+                    step="1"
+                    min={1900}
+                    max={new Date().getFullYear()}
+                    onChange={(e) => {
+                      e.preventDefault();
+                      setTempYear(e.target.value);
+                    }}
+                    className={classes.input}
+                    onKeyDown={handleKeyDown}
+                  />
 
                   {/* Pagination */}
                   <div className={classes.pagination}>
@@ -324,7 +315,7 @@ const ResultList = ({
                   <br />
                   Or just change/clear the current film filter
                 </div>
-              </>
+              </div>
             ) : (
               <>
                 {/* Search Parameters */}
@@ -408,23 +399,21 @@ const ResultList = ({
                   </div>
 
                   {/* Choose Movie Year Option */}
-                  <div className="">
-                    <input
-                      type="number"
-                      name="year"
-                      id="year"
-                      placeholder="Year released"
-                      step="1"
-                      min={1900}
-                      max={new Date().getFullYear()}
-                      onChange={(e) => {
-                        e.preventDefault();
-                        setTempYear(e.target.value);
-                      }}
-                      className={classes.input}
-                      onKeyDown={handleKeyDown}
-                    />
-                  </div>
+                  <input
+                    type="number"
+                    name="year"
+                    id="year"
+                    placeholder="Year released"
+                    step="1"
+                    min={1900}
+                    max={new Date().getFullYear()}
+                    onChange={(e) => {
+                      e.preventDefault();
+                      setTempYear(e.target.value);
+                    }}
+                    className={classes.input}
+                    onKeyDown={handleKeyDown}
+                  />
 
                   {/* Pagination */}
                   <div className={classes.pagination}>

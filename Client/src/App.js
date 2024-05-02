@@ -6,6 +6,7 @@ import Search from "./pages/search/Search";
 import NavBar from "./components/NavBar";
 import NotFound from "./pages/NotFound";
 import axios from "axios";
+import { SkeletonTheme } from "react-loading-skeleton";
 
 require("dotenv").config();
 
@@ -22,21 +23,26 @@ function App() {
     },
   });
   return (
-    <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route
-          path="/"
-          element={<Browse authAxios={authAxios} accessToken={accessToken} />}
-        />
-        <Route path="/search" element={<Search accessToken={accessToken} />} />
-        <Route
-          path="*"
-          element={<NotFound />}
-          render={() => <Navigate to="/error" />}
-        />
-      </Routes>
-    </BrowserRouter>
+    <SkeletonTheme baseColor="#473a39" highlightColor="#ce9e9e">
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route
+            path="/"
+            element={<Browse authAxios={authAxios} accessToken={accessToken} />}
+          />
+          <Route
+            path="/search"
+            element={<Search accessToken={accessToken} />}
+          />
+          <Route
+            path="*"
+            element={<NotFound />}
+            render={() => <Navigate to="/error" />}
+          />
+        </Routes>
+      </BrowserRouter>
+    </SkeletonTheme>
   );
 }
 

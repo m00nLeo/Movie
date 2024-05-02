@@ -66,7 +66,9 @@ exports.postTrailerMoive = (req, res, next) => {
   } else {
     const trailerList =
       foundMovie?.filter((film) => film.type === "Trailer") ||
-      foundMovie?.filter((film) => film.type === "Teaser");
+      foundMovie?.filter((film) => film.type === "Featurette") ||
+      foundMovie?.filter((film) => film.type === "Teaser") ||
+      foundMovie?.filter((film) => film.type === "Clip");
 
     let trailer;
     if (trailerList?.length > 1) {
@@ -215,7 +217,7 @@ exports.postSearch = (req, res, next) => {
   } else {
     foundFilms = [...foundFilmTitle, ...foundFilmOverview];
   }
-  
+
   const paginatedData = paginate(foundFilms, currentPage);
 
   if (inputValue) {

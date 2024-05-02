@@ -4,11 +4,26 @@ import classes from "../../styles/UI/browse/Banner.module.css";
 import { FaPlay } from "react-icons/fa";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 
-const Banner = ({ randomBanner }) => {
-  const renderTitle =
-    randomBanner?.original_title === undefined
-      ? randomBanner?.name
-      : randomBanner?.original_title;
+const Banner = ({
+  randomBanner,
+  fetchMovieDetailOrigin,
+  setModal,
+  setModalId,
+  setMovieDetail,
+}) => {
+  // Film title
+  let renderTitle;
+  if (randomBanner?.name && randomBanner?.original_name) {
+    renderTitle =
+      randomBanner?.name === randomBanner?.original_name
+        ? randomBanner?.name
+        : `${randomBanner?.name} (${randomBanner?.original_name})`;
+  } else {
+    renderTitle =
+      randomBanner?.title === randomBanner?.original_title
+        ? randomBanner?.title
+        : `${randomBanner?.title} (${randomBanner?.original_title})`;
+  }
   return (
     <div className={classes.banner}>
       <img
@@ -21,7 +36,7 @@ const Banner = ({ randomBanner }) => {
       <Card>
         <div
           className={`${
-            renderTitle?.length > 30
+            renderTitle?.length > 27
               ? classes.movieDetailLongTitle
               : classes.movieDetail
           }`}
@@ -55,7 +70,14 @@ const Banner = ({ randomBanner }) => {
               <FaPlay />
               Play
             </button>
-            <button>
+            <button
+              onClick={() => {
+                setMovieDetail(randomBanner);
+                setModalId(randomBanner?.id);
+                setModal(true);
+                fetchMovieDetailOrigin(randomBanner.id);
+              }}
+            >
               <IoMdInformationCircleOutline />
               Other Information
             </button>

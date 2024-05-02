@@ -3,6 +3,8 @@ import Card from "../../components/Card";
 import CarouselMovie from "../../components/CarouselMovie";
 import LinkImage from "../../components/Movie/LinkImage";
 import classes from "../../styles/UI/browse/CarouselMovieType.module.css";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const CarouselMovieType = ({
   authAxios,
@@ -97,6 +99,7 @@ const CarouselMovieType = ({
     },
   ];
   const [option, setOption] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchMovie = async (request) => {
     if (request === "discover") {
@@ -106,6 +109,7 @@ const CarouselMovieType = ({
         );
         const { data } = await response;
         if (data.message) console.log(data.message);
+        setIsLoading(false);
         setMovieListData(data);
         setMoiveData(data?.paginatedData.result);
       }
@@ -122,6 +126,7 @@ const CarouselMovieType = ({
 
       const { data } = await response;
       if (data.message) console.log(data.message);
+      setIsLoading(false);
       setMovieListData(data);
       setMoiveData(data?.result);
     }
@@ -149,7 +154,7 @@ const CarouselMovieType = ({
     }
   };
   return (
-    <div className={classes.main}>
+    <div className={isLoading ? classes.isLoading: classes.main}>
       <Card>
         <div
           className=""
@@ -306,21 +311,27 @@ const CarouselMovieType = ({
       {/* Movie lists / Carousel */}
       <div style={{ transform: "translate(0, -35%)", height: 10 }}>
         {request !== "discover" ? (
-          <CarouselMovie fluid={false}>
-            {movieData?.map((data) => (
-              <LinkImage
-                data={data}
-                key={data?.id}
-                imgPath={"backdrop"}
-                setModal={setModal}
-                setMovieDetail={setMovieDetail}
-                setStateDetail={setStateDetail}
-                fetchMovieDetail={fetchMovieDetail}
-                setModalId={setModalId}
-                modalId={modalId}
-              />
-            ))}
-          </CarouselMovie>
+          isLoading ? (
+            <Card>
+              <Skeleton count={5} />
+            </Card>
+          ) : (
+            <CarouselMovie fluid={false}>
+              {movieData?.map((data) => (
+                <LinkImage
+                  data={data}
+                  key={data?.id}
+                  imgPath={"backdrop"}
+                  setModal={setModal}
+                  setMovieDetail={setMovieDetail}
+                  setStateDetail={setStateDetail}
+                  fetchMovieDetail={fetchMovieDetail}
+                  setModalId={setModalId}
+                  modalId={modalId}
+                />
+              ))}
+            </CarouselMovie>
+          )
         ) : option === "" ? (
           <p
             style={{

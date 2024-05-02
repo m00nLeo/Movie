@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import CarouselMovie from "../../components/CarouselMovie";
 import LinkImage from "../../components/Movie/LinkImage";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import Card from "../../components/Card";
 
 const Origin = ({
   requests,
@@ -14,6 +17,7 @@ const Origin = ({
   setModalId,
 }) => {
   const [state, setState] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchMovie = async (apiLink) => {
     const response = await fetch(
@@ -21,6 +25,7 @@ const Origin = ({
     );
 
     const data = await response.json();
+    setIsLoading(false);
     setState(data?.results);
   };
 
@@ -31,22 +36,28 @@ const Origin = ({
   }, []);
   return (
     <div style={{ color: "white", paddingTop: "20vh" }}>
-      <CarouselMovie fluid={true}>
-        {state?.map((data) => (
-          <LinkImage
-            data={data}
-            key={data?.id}
-            imgPath={imgPath}
-            setModal={setModal}
-            modal={modal}
-            setMovieDetail={setMovieDetail}
-            fetchMovieDetail={fetchMovieDetailOrigin}
-            setStateDetail={setStateDetail}
-            setModalId={setModalId}
-            modalId={modalId}
-          />
-        ))}
-      </CarouselMovie>
+      {isLoading ? (
+        <Card>
+          <Skeleton count={8} />
+        </Card>
+      ) : (
+        <CarouselMovie fluid={true}>
+          {state?.map((data) => (
+            <LinkImage
+              data={data}
+              key={data?.id}
+              imgPath={imgPath}
+              setModal={setModal}
+              modal={modal}
+              setMovieDetail={setMovieDetail}
+              fetchMovieDetail={fetchMovieDetailOrigin}
+              setStateDetail={setStateDetail}
+              setModalId={setModalId}
+              modalId={modalId}
+            />
+          ))}
+        </CarouselMovie>
+      )}
     </div>
   );
 };

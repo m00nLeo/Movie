@@ -10,9 +10,14 @@
   box-sizing: border-box;
 }
 
+.isLoading{
+  height: 150px;
+}
+
 .main {
   height: 300px;
 }
+
 
 /*                 */
 

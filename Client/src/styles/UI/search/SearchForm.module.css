@@ -1,7 +1,6 @@
 .search {
   position: absolute;
   top: 40vh;
-  left: 5%;
   color: white;
   max-width: 550px;
 }
@@ -50,4 +49,40 @@
 }
 .search button:hover {
   background-color: rgba(178, 34, 34, 0.8);
+}
+
+@media (min-width: 320px) {
+  .search {
+    left: 5%;
+  }
+}
+
+@media (min-width: 420px) {
+  .search {
+    left: 5%;
+  }
+}
+
+@media (min-width: 460px) {
+  .search {
+    left: 5%;
+  }
+}
+
+@media (min-width: 920px) {
+  .search {
+    left: 4%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .search {
+    left: 6%;
+  }
+}
+
+@media (min-width: 1500px) {
+  .search {
+    left: 5%;
+  }
 }

@@ -14,14 +14,14 @@ const SearchForm = ({
   setMediaType,
   setYear,
 }) => {
+  setGenreType("");
+  setLanguage("all");
+  setMediaType("all");
+  setYear(0);
+  setCurrentPage(1);
   const handleSubmit = () => {
     setQuery(inputValue);
     fecthSearch();
-    setGenreType("");
-    setLanguage("all");
-    setMediaType("all");
-    setYear(0);
-    setCurrentPage(1);
   };
 
   const handleKeyDown = (event) => {

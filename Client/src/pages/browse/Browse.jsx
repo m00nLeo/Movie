@@ -29,7 +29,6 @@ function Browse({ authAxios, accessToken }) {
     const results = data?.results;
     const randomBanner =
       results[Math.floor(Math.random() * results?.length - 1)];
-
     setBanner(randomBanner);
   };
 
@@ -99,7 +98,14 @@ function Browse({ authAxios, accessToken }) {
   return (
     <div className="">
       <div style={{ marginBottom: "55vh" }}>
-        <Banner randomBanner={banner} />
+        <Banner
+          randomBanner={banner}
+          setModal={setModal}
+          fetchMovieDetailOrigin={fetchMovieDetailOrigin}
+          setModalId={setModalId}
+          setMovieDetail={setMovieDetail}
+          modalId={modalId}
+        />
       </div>
 
       {/* Movie Carousel */}
