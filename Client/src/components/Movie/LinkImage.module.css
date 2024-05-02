@@ -18,10 +18,9 @@
   transition: all 250ms ease-out;
   transition-delay: 200ms;
   cursor: pointer;
-  /* z-index: 999; */
   overflow: hidden;
-  background-color: rgb(27, 27, 27);
-  box-shadow: 0 0 10px 1px #2a2929;
+  background-color: rgb(25, 23, 23);
+  box-shadow: 0 0 7px 1px #404040;
   border-radius: 4px;
 }
 
