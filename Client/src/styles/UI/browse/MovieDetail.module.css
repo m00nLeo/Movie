@@ -33,9 +33,10 @@
   width: fit-content;
   height: fit-content;
   font-size: 2rem;
-  transform: translate(44vw, 20%);
   cursor: pointer;
   z-index: 2000;
+  position: absolute;
+  transform: translate(-50%, -50%);
 }
 
 .closeModal:hover {
@@ -90,6 +91,13 @@
     align-items: center;
     text-align: center;
   }
+  .detail {
+    padding-top: 2rem;
+  }
+  .closeModal {
+    top: 8%;
+    left: 50%;
+  }
 }
 
 @media (min-width: 1000px) {
@@ -98,5 +106,12 @@
     align-items: flex-start;
     text-align: left;
     justify-content: space-between;
+  }
+  .detail {
+    padding-top: 4rem;
+  }
+  .closeModal {
+    top: 10%;
+    left: 50%;
   }
 }

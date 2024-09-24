@@ -22,7 +22,7 @@ function Browse({ authAxios, accessToken }) {
   // For Banner
   const fetchMovie = async (apiLink) => {
     const response = await fetch(
-      `https://api.themoviedb.org/3/${requests[`${apiLink}`]}`
+      `https://api.themoviedb.org/3${requests[`${apiLink}`]}`
     );
 
     const data = await response.json();

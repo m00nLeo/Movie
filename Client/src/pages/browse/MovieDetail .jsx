@@ -14,8 +14,8 @@ const MovieDetail = ({
 }) => {
   // Youtube Video size option
   const opts = {
-    height: "360",
-    width: "640",
+    height: "300",
+    width: "575",
     playerVars: {
       autoplay: 1,
     },
