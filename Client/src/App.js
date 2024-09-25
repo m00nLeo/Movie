@@ -8,8 +8,6 @@ import NotFound from "./pages/NotFound";
 import axios from "axios";
 import { SkeletonTheme } from "react-loading-skeleton";
 
-require("dotenv").config();
-
 function App() {
   const accessToken = process.env.REACT_APP_ACCESS_TOKEN_KEY;
 
